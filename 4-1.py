@@ -25,10 +25,12 @@ dy = [-1, 1, 0, 0]
 move_types = ['L', 'R', 'U', 'D']
 
 for i in move:
-    x = x + dx[move_types.index(i)]
-    y = y + dy[move_types.index(i)]
-
-    if x < 1 or x > n or y < 1 or y > n:
+    px = x + dx[move_types.index(i)]
+    py = y + dy[move_types.index(i)]
+    if 1 <= px <= n and 1 <= py <= n:  # 배열 범위 안이면 좌표 업데이트
+        x = px
+        y = py
+    else:
         continue
 
 print(x, y)
